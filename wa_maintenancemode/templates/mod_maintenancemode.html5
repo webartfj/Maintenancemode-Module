@@ -1,0 +1,67 @@
+<?PHP
+	if($this->get['status'] == 0) {
+?>
+<html slick-uniqueid="3" lang="de"><head>
+<meta charset="utf-8">
+<title><?php echo $this->language['ptite']; ?></title>
+<base href="http://webart.contao/">
+<link rel="stylesheet" href="system/scripts/5399cff7c46b.css" media="all">
+<!--[if IE]><link rel="stylesheet" href="system/themes/default/iefixes.css"><![endif]-->
+<!--[if lt IE 9]><script src="plugins/html5shim/html5-3.js"></script><![endif]-->
+<style type="text/css">
+#main p.text {
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-bottom: 30px;
+}
+</style>
+</head>
+<body class="win firefox fx15">
+
+<!--[if lte IE 6]>
+<div id="ie6warning"><strong>Achtung!</strong> Sie verwenden einen <a href="http://ie6countdown.com">veralteten Browser</a> und <strong>können nicht alle Funktionen dieser Webseite nutzen</strong>.</div>
+<![endif]-->
+
+<div id="header">
+<h1><?php echo $this->language['headertitle']; ?></h1>
+</div>
+
+<div id="container">
+<div id="main">
+
+<h2><?PHP echo $this->get['wa_title']; ?></h2>
+
+<p class="text">
+	<?PHP echo $this->get['wa_content']; ?>
+</p>
+
+<div id="tl_license">
+<p>Maintenance Modul by <a href="http://www.fabian-jocks.de/" target="_blank">WebART Fabian Jocks</a>. &copy;2012 <a href="http://www.fabian-jocks.de/" target="_blank">Fabian Jocks</a></p>
+
+</div>
+
+<p id="go_to_frontend"><a href="/contao/" class="footer_preview" title="<?php echo $this->language['gotobackend']; ?>"><?php echo $this->language['gotobackend']; ?></a></p>
+
+</div>
+
+</div>
+
+<script>
+new Request({
+  url:'system/html/cron.txt',
+  onComplete: function(txt) {
+    if (!txt) txt = 0;
+    if (parseInt(txt) < (Date.now()/1000 - 300)) {
+      new Request({url:'cron.php'}).send();
+    }
+  }
+}).send();
+</script>
+
+
+</body></html>
+
+<?PHP 
+		exit;
+    }
+?>
